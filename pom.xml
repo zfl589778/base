@@ -1,0 +1,663 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<developers>
+		<developer>
+			<name>Eric</name>
+		</developer>
+	</developers>
+	<description>
+		基本构架：springmvc，mybatis，mysql，c3p0，json，guava，jstl，junit
+		扩展功能：jetty，netty，dubbo，redis，kafka，mail，二维码zxing
+	</description>
+	<groupId>com.eric.framework</groupId>
+	<artifactId>base</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+	<dependencyManagement>
+		<dependencies>
+			<!-- test begin -->
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.11</version>
+				<scope>test</scope>
+			</dependency>
+			<!-- test end -->
+			<!-- javax begin -->
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>3.1.0</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.servlet.jsp</groupId>
+				<artifactId>jsp-api</artifactId>
+				<version>2.2</version>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.persistence</groupId>
+				<artifactId>javax.persistence</artifactId>
+				<version>2.1.1</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.validation</groupId>
+				<artifactId>validation-api</artifactId>
+				<version>1.1.0.Final</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.mail</groupId>
+				<artifactId>mail</artifactId>
+				<version>1.4</version>
+			</dependency>
+			<!-- javax end -->
+			<!-- mysql begin -->
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>5.1.34</version>
+			</dependency>
+			<!-- mysql end -->
+			<!-- spring begin -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>4.1.1.RELEASE</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>4.1.1.RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-oxm</artifactId>
+				<version>4.1.1.RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-jpa</artifactId>
+				<version>1.11.1.RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-redis</artifactId>
+				<version>1.8.1.RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-hadoop-core</artifactId>
+				<version>2.4.0.RELEASE</version>
+				<exclusions>
+					<exclusion>
+						<artifactId>jdk.tools</artifactId>
+						<groupId>jdk.tools</groupId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<!-- spring end -->
+			<!-- aspect begin -->
+			<dependency>
+				<groupId>org.aspectj</groupId>
+				<artifactId>aspectjweaver</artifactId>
+				<version>1.8.2</version>
+			</dependency>
+			<!-- aspect end -->
+			<!-- mybatis begin -->
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis</artifactId>
+				<version>3.2.7</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis-spring</artifactId>
+				<version>1.2.2</version>
+			</dependency>
+			<!-- mybatis end -->
+			<!-- hibernate begin -->
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>5.1.2.Final</version>
+			</dependency>
+			<!-- hibernate end -->
+			<!-- netty begin -->
+			<dependency>
+				<groupId>io.netty</groupId>
+				<artifactId>netty-all</artifactId>
+				<version>5.0.0.Alpha2</version>
+			</dependency>
+			<dependency>
+				<groupId>com.dyuproject.protostuff</groupId>
+				<artifactId>protostuff-runtime</artifactId>
+				<version>1.0.10</version>
+			</dependency>
+			<dependency>
+				<groupId>com.dyuproject.protostuff</groupId>
+				<artifactId>protostuff-core</artifactId>
+				<version>1.0.10</version>
+			</dependency>
+			<!-- netty end -->
+			<!-- c3p0 begin -->
+			<dependency>
+				<groupId>c3p0</groupId>
+				<artifactId>c3p0</artifactId>
+				<version>0.9.1.2</version>
+			</dependency>
+			<!-- c3p0 end -->
+			<!-- jstl begin -->
+			<dependency>
+				<groupId>jstl</groupId>
+				<artifactId>jstl</artifactId>
+				<version>1.2</version>
+			</dependency>
+			<!-- jstl end -->
+			<!-- json begin -->
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+				<version>2.4.2</version>
+			</dependency>
+			<dependency>
+			    <groupId>com.alibaba</groupId>
+			    <artifactId>fastjson</artifactId>
+			    <version>1.2.15</version>
+			</dependency>
+			<!-- json end -->
+			<!-- slf4j begin -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>1.7.7</version>
+			</dependency>
+			<!-- slf4j end -->
+			<!-- commons begin -->
+			<dependency>
+				<groupId>commons-httpclient</groupId>
+				<artifactId>commons-httpclient</artifactId>
+				<version>3.1</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-fileupload</groupId>
+				<artifactId>commons-fileupload</artifactId>
+				<version>1.3.1</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-beanutils</groupId>
+				<artifactId>commons-beanutils</artifactId>
+				<version>1.9.2</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.tomcat</groupId>
+				<artifactId>tomcat-jdbc</artifactId>
+				<version>8.0.9</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>3.3.2</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-pool2</artifactId>
+				<version>2.3</version>
+			</dependency>
+			<!-- commons end -->
+			<!-- jetty begin -->
+			<dependency>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-annotations</artifactId>
+				<version>9.2.18.v20160721</version>
+				<exclusions>
+					<exclusion>
+						<artifactId>javax.servlet-api</artifactId>
+						<groupId>javax.servlet</groupId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<!-- jetty end -->
+			<!-- dubbo begin -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>dubbo</artifactId>
+				<version>2.5.3</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.jboss.netty</groupId>
+						<artifactId>netty</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.jboss.netty</groupId>
+				<artifactId>netty</artifactId>
+				<version>3.2.10.Final</version>
+			</dependency>
+			<dependency>
+				<groupId>com.101tec</groupId>
+				<artifactId>zkclient</artifactId>
+				<version>0.4</version>
+			</dependency>
+			<!-- dubbo end -->
+			<!-- google begin -->
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>18.0</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.code.gson</groupId>
+				<artifactId>gson</artifactId>
+				<version>2.3</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.zxing</groupId>
+				<artifactId>javase</artifactId>
+				<version>3.3.0</version>
+			</dependency>
+			<dependency>
+				<groupId>com.googlecode.log4jdbc</groupId>
+				<artifactId>log4jdbc</artifactId>
+				<version>1.2</version>
+			</dependency>
+			<!-- google end -->
+			<!-- redis start -->
+			<dependency>
+				<groupId>redis.clients</groupId>
+				<artifactId>jedis</artifactId>
+				<version>2.6.1</version>
+			</dependency>
+			<!-- redis end -->
+			<!-- apache begin -->
+			<dependency>
+				<groupId>org.apache.kafka</groupId>
+				<artifactId>kafka_2.9.2</artifactId>
+				<version>0.8.1.1</version>
+				<exclusions>
+					<exclusion>
+						<artifactId>jmxri</artifactId>
+						<groupId>com.sun.jmx</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>jms</artifactId>
+						<groupId>javax.jms</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>jmxtools</artifactId>
+						<groupId>com.sun.jdmk</groupId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<!-- apache end -->
+			<!-- jamon begin -->
+			<dependency>
+				<groupId>com.jamonapi</groupId>
+				<artifactId>jamon</artifactId>
+				<version>2.78</version>
+			</dependency>
+			<!-- jamon end -->
+		</dependencies>
+	</dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>com.alibaba</groupId>
+		    <artifactId>fastjson</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.log4jdbc</groupId>
+			<artifactId>log4jdbc</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.jamonapi</groupId>
+			<artifactId>jamon</artifactId>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>${project.artifactId}-${project.version}</finalName>
+		<resources>
+			<resource>
+				<filtering>true</filtering>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<filtering>true</filtering>
+			</testResource>
+		</testResources>
+		<pluginManagement>
+			<plugins>
+				<!-- 编译 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.1</version>
+					<configuration>
+						<source>1.7</source>
+						<target>1.7</target>
+						<encoding>UTF-8</encoding>
+						<!-- 将lib下的jar编译进去 -->
+						<compilerArguments>
+							<extdirs>src\main\webapp\WEB-INF\lib</extdirs>
+						</compilerArguments>
+					</configuration>
+				</plugin>
+				<!-- 打war包 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.2</version>
+					<configuration>
+						<webResources>
+							<resource>
+								<filtering>true</filtering>
+								<directory>${basedir}/src/main/webapp</directory>
+								<includes>
+									<include>**/*.xml</include>
+									<include>**/*.properties</include>
+								</includes>
+							</resource>
+						</webResources>
+					</configuration>
+				</plugin>
+				<!-- 生成文档 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>2.10.3</version>
+					<configuration>
+						<aggregate>true</aggregate>
+						<attach>true</attach>
+						<charset>UTF-8</charset>
+						<encoding>UTF-8</encoding>
+						<docencoding>UTF-8</docencoding>
+					</configuration>
+					<executions>
+						<execution>
+							<phase>package</phase>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<!-- 生成源码 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>2.4</version>
+					<configuration>
+						<attach>true</attach>
+					</configuration>
+					<executions>
+						<execution>
+							<phase>package</phase>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<!-- resources资源文件插件 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>2.6</version>
+					<configuration>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+				<!-- junit单元测试插件 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.17</version>
+					<configuration>
+						<skipTests>false</skipTests>
+						<forkMode>once</forkMode>
+						<argLine>-Dfile.encoding=UTF-8</argLine>
+					</configuration>
+				</plugin>
+				<!-- 清除 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>2.5</version>
+					<configuration>
+						<filesets>
+							<!-- 清除classes -->
+							<fileset>
+								<directory>src/main/webapp/WEB-INF/classes</directory>
+								<followSymlinks>false</followSymlinks>
+								<useDefaultExcludes>true</useDefaultExcludes>
+							</fileset>
+							<!-- 清除压缩js -->
+							<fileset>
+								<directory>src/main/webapp/js</directory>
+								<followSymlinks>false</followSymlinks>
+								<useDefaultExcludes>true</useDefaultExcludes>
+								<includes>
+									<include>*-min.js</include>
+									<include>${project.artifactId}-${project.version}.js</include>
+								</includes>
+							</fileset>
+						</filesets>
+					</configuration>
+				</plugin>
+				<!-- 生成eclipse工程 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-eclipse-plugin</artifactId>
+					<version>2.9</version>
+					<configuration>
+						<additionalProjectnatures>
+							<projectnature>org.eclipse.jdt.core.javanature</projectnature>
+						</additionalProjectnatures>
+						<additionalBuildcommands>
+							<buildcommand>org.eclipse.jdt.core.javabuilder</buildcommand>
+						</additionalBuildcommands>
+					</configuration>
+				</plugin>
+				<!-- 生成intellijj idea工程 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-idea-plugin</artifactId>
+					<version>2.2.1</version>
+				</plugin>
+				<!-- YUI Compressor Maven压缩插件 -->
+				<plugin>
+					<groupId>net.alchim31.maven</groupId>
+					<artifactId>yuicompressor-maven-plugin</artifactId>
+					<version>1.3.0</version>
+					<executions>
+						<execution>
+							<phase>compile</phase>
+							<goals>
+								<goal>compress</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<!-- 读取js,css文件采用UTF-8编码 -->
+						<encoding>UTF-8</encoding>
+						<!-- 不显示js可能的错误 -->
+						<jswarn>false</jswarn>
+						<!-- 若存在已压缩的文件，会先对比源文件是否有改动。有改动便压缩，无改动就不压缩 -->
+						<force>false</force>
+						<!-- 在指定的列号后插入新行 -->
+						<linebreakpos>-1</linebreakpos>
+						<!-- 压缩之前先执行聚合文件操作 -->
+						<preProcessAggregates>true</preProcessAggregates>
+						<!-- 压缩后保存文件后缀 -->
+						<suffix>-min</suffix>
+						<!-- 源目录，即需压缩的根目录 -->
+						<sourceDirectory>src/main/webapp/js</sourceDirectory>
+						<!-- 压缩js文件 -->
+						<includes>
+							<include>**/${project.artifactId}-${project.version}.js</include>
+						</includes>
+						<!-- 以下目录和文件不会被压缩 -->
+						<excludes>
+							<exclude>**/*-min.js</exclude>
+						</excludes>
+						<!-- 压缩后输出文件目录 -->
+						<outputDirectory>src/main/webapp/js</outputDirectory>
+						<!-- 聚合文件 -->
+						<aggregations>
+							<aggregation>
+								<!-- 合并每一个文件后插入一新行 -->
+								<insertNewLine>true</insertNewLine>
+								<!-- 需合并文件的根文件夹 -->
+								<inputDir>src/main/webapp/js</inputDir>
+								<!-- 最终合并的输出文件 -->
+								<output>
+									src/main/webapp/js/${project.artifactId}-${project.version}.js
+								</output>
+								<!-- 把以下js文件合并成一个js文件，是按顺序合并的 -->
+								<includes>
+									<include>**/*.js</include>
+								</includes>
+								<excludes>
+									<exclude>**/*-min.js</exclude>
+								</excludes>
+							</aggregation>
+						</aggregations>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+	<!-- 部署到maven中心 -->
+	<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<name>Nexus Releases Repository</name>
+			<url>http://localhost:8081/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>Nexus Snapshots Repository</name>
+			<url>http://localhost:8081/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+</project>
