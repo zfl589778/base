@@ -1,0 +1,113 @@
+<settings>
+<localRepository>/home/my/repo</localRepository>
+     <profiles>
+        <profile>
+            <id>dev0</id>
+            <repositories>
+                <repository>
+                    <id>remote-nexus</id>
+                    <url>http://localhost/nexus/content/groups/public/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+        </profile>
+         <profile>
+            <id>dev1</id>
+            <repositories>
+                <repository>
+                    <id>releases</id>
+                    <url>http://192.168.2.34:12345/nexus/content/repositories/releases/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+        </profile>
+		 <profile>
+            <id>dev2</id>
+            <repositories>
+                <repository>
+                    <id>releases</id>
+                    <url>http://localhost:8081/nexus/content/repositories/releases/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+        </profile>
+
+		<profile>
+		<id>myprofile</id>
+		<repositories>    
+     <repository>    
+       <id> maven-net-cn</id>    
+       <name> Maven osChina Mirror</name>    
+       <url> http://maven.oschina.net/content/groups/public/</url>    
+       <releases>    
+         <enabled> true</enabled>    
+       </releases>    
+       <snapshots>    
+         <enabled> false</enabled>    
+       </snapshots>    
+     </repository>    
+   </repositories>    
+   <pluginRepositories>    
+     <pluginRepository>    
+       <id> maven-net-cn</id>    
+       <name> Maven osChina Mirror</name>    
+       <url> http://maven.oschina.net/content/groups/public/</url>    
+       <releases>    
+         <enabled> true</enabled>    
+       </releases>    
+       <snapshots>    
+         <enabled> false</enabled>    
+       </snapshots>         
+     </pluginRepository>    
+   </pluginRepositories>
+		</profile>
+
+
+<!--    <profile>
+	<id>jdk17</id>
+	<activation>
+		<activeByDefault>true</activeByDefault>
+		<jdk>1.7</jdk>
+	</activation>
+	<properties>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
+		<maven.compiler.compilerVersion>1.7</maven.compiler.compilerVersion>
+	</properties>	
+</profile> -->
+
+    </profiles>
+   <activeProfiles>
+    <!--    <activeProfile>dev0</activeProfile>
+        <activeProfile>dev1</activeProfile>  -->
+      <activeProfile>dev2</activeProfile>
+    </activeProfiles>
+    <servers>
+        <server>
+            <id>releases</id>
+            <username>admin</username>
+            <password>admin123</password>
+        </server>
+        <server>
+            <id>snapshots</id>
+            <username>admin</username>
+            <password>admin123</password>
+        </server>
+    </servers> 
+</settings>
+
